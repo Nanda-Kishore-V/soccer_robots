@@ -57,7 +57,6 @@ while(True):
             ret,thresh_crop = cv2.threshold(imgwhiteGray,160,255,cv2.THRESH_BINARY)
 
 
-	    #cv2.imshow('fuck', thresh_crop);
             contours_white,hierarchy_white = cv2.findContours(thresh_crop, cv2.RETR_TREE, 2)
             cv2.drawContours(crop, contours_white, -1, (0,255,0), 3)
             cv2.imshow("Crop_with_contour",crop)
@@ -71,16 +70,7 @@ while(True):
                 c_white = contours_white[j]
                 area_white = cv2.contourArea(c_white)
                 print "Area white: ",area_white
-                # print "area_white",area_white
-                # if(area_white > 1000 and area_white < 4500):
-                #     M_White = cv2.moments(c_white)
-                #     if M_White["m00"] == 0:
-                #         continue
-                # cv2.drawContours(crop, [contours_white[j]], -1, (0, 255, 0), 2) #parent - bluish green
-                # count = 0
-                # for j in range(len(contours_white)):
-                    # print hierarchy_white[0][j][2]
-                if hierarchy_white[0][j][2] == -1 and area_white > 250: #Assumption: the small white circles doesnt have any children
+                if hierarchy_white[0][j][2] == -1 and area_white > 250: #Assumption: the small white circles dont have any children
                     count += 1
                     if area_white > 900 and area_white < 1100:
                         M_small = cv2.moments(contours_white[j])
@@ -93,11 +83,5 @@ while(True):
             print "cX: ",cX," cY: ",cY," cX_new: ",cX_new," cY_new: ",cY_new," yX: ",yX," yY: ",yY," yawAngle: ",yawAngle
             print "Count: ",count
 
-            # cv2.imshow("Image",crop)
-            # if cv2.waitKey(1) & 0xFF == ord('q'):
-            #     flag = 1
-            #     break
-
-#conn.close()
 cap.release()
 cv2.destroyAllWindows()
