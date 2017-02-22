@@ -52,7 +52,7 @@ while(True):
     # if cv2.waitKey(1) == 0xFF & ord('q'):
     #     flag = 1
     #     break
-    contours_ball,hierarchy = cv2.findContours(mask_ball, cv2.RETR_TREE, 2)
+    _,contours_ball,hierarchy = cv2.findContours(mask_ball, cv2.RETR_TREE, 2)
     # print "Image Shape :" , img.shape
 
     if len(contours_ball) > 0:

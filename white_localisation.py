@@ -89,10 +89,9 @@ while(True):
                 #     cY_new = int(M["m01"]/M["m00"])
                 cX_new = 40;    cY_new = 40;
             yawAngle = math.atan2(cY_new-yY,cX_new-yX)*180/math.pi
-            if count == 5:
-                # print "cX: ",cX," cY: ",cY," cX_new: ",cX_new," cY_new: ",cY_new," yX: ",yX," yY: ",yY," yawAngle: ",yawAngle
-                # print "Count: ",count
-                print yawAngle
+            print "cX: ",cX," cY: ",cY," cX_new: ",cX_new," cY_new: ",cY_new," yX: ",yX," yY: ",yY," yawAngle: ",yawAngle
+            print "Count: ",count
+                # print yawAngle
 
             # cv2.imshow("Image",crop)
             # if cv2.waitKey(1) & 0xFF == ord('q'):
